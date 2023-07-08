@@ -14,7 +14,7 @@ function useTomeetaInner() {
   }>>([]);
 
   async function fetchTomeeta() {
-    const { data } = await client.from("tomeeta").select("*,profile(id,name,bio)");
+    const { data } = await client.from("tomeeta").select("*,profile(id,name,bio)").order("created_at", { ascending: false });
     setTomeeta(data!.map(it => ({
       id: it.id,
       user: {
