@@ -17,7 +17,7 @@ const Root: FC = () => {
   return (
     <>
       <header>
-        <nav>
+        <nav style={{ marginBottom: 0 }}>
           <a href="/"><h1>Tomitter</h1></a>
           <ul>
             <li>
@@ -27,7 +27,7 @@ const Root: FC = () => {
             </li>
             {isLoggedIn && <li>
               <a onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
-                New
+                Write
               </a>
             </li>}
           </ul>
@@ -40,7 +40,7 @@ const Root: FC = () => {
         <h6>kojiro.ueda</h6>
       </footer>
       <Toast />
-      <Dialog open={open}><Tomeeta /></Dialog>
+      <Dialog open={open} onClose={() => setOpen(false)}><Tomeeta /></Dialog>
     </>
   );
 }

@@ -25,15 +25,13 @@ export const LoginPage: FC = () => {
           <input placeholder="password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
           {createAccount && <label>Password again</label>}
           {createAccount && <input placeholder="password" type="password" value={password2} onChange={e => setPassword2(e.target.value)} />}
+          <button type="submit">
+            {createAccount ? "Create account" : "Login"}
+          </button>{" "}
           <footer>
-            <button type="submit">
-              {createAccount ? "Create account" : "Login"}
-            </button>{" "}
-            <div>
-              <a onClick={() => setCreateAccount(!createAccount)}>
-                {!createAccount ? "Create account" : "Login"}
-              </a>
-            </div>
+            <a onClick={() => setCreateAccount(!createAccount)}>
+              {!createAccount ? "Create account" : "Login"}
+            </a>
           </footer>
         </form>
       </section>
