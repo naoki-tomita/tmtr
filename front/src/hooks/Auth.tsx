@@ -45,6 +45,12 @@ function useAuthInner() {
       setUser(null);
       toast({ text: "Logged out!" });
     },
+    async signUp(email: string, password: string) {
+      await client.auth.initialize();
+      const { data: { user: fetchedUser } } = await client.auth.signUp({ email, password });
+      await client.from("profile").insert({ id: fetchedUser!.id, name: email, bio: "" });
+      setUser({ id: fetchedUser!.id, name: email, bio: "" });
+    }
   }
 }
 
